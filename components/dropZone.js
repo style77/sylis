@@ -26,6 +26,7 @@ const FileDropzone = () => {
             router.push(`/${refName}`)
         })
     }, [])
+    
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
     return (
