@@ -13,7 +13,7 @@ import { signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { auth } from "../firebase"
 import useAuth from '../components/hooks/useAuth'
 
-import { Container } from '../components/Container'
+import { Container } from '.././components/container'
 import FileDropzone from '../components/dropZone'
 
 const texts = {

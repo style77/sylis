@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { FaFile, FaFileAudio, FaFileCode, FaFileCsv, FaFileExcel, FaFileImage, FaFilePdf, FaFilePowerpoint, FaFileWord, FaSignInAlt } from 'react-icons/fa'
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { Container } from '../components/Container';
+import { Container } from '.././components/container';
 import { Circle, Flex, Icon, Link, Stack, Text } from '@chakra-ui/react';
 import useAuth from '../components/hooks/useAuth';
 
