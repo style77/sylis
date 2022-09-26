@@ -1,16 +1,20 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { FaFile, FaFileAudio, FaFileCode, FaFileCsv, FaFileExcel, FaFileImage, FaFilePdf, FaFilePowerpoint, FaFileWord, FaSignInAlt } from 'react-icons/fa'
+import { FaFile, FaFileAudio, FaFileCode, FaFileCsv, FaFileExcel, FaFileImage, FaFilePdf, FaFilePowerpoint, FaFileVideo, FaFileWord, FaSignInAlt } from 'react-icons/fa'
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { Container } from '.././components/container';
-import { Circle, Flex, Icon, Link, Stack, Text } from '@chakra-ui/react';
+import { AspectRatio, Box, Circle, Flex, Icon, Image, Link, Stack, Text } from '@chakra-ui/react';
 import useAuth from '../components/hooks/useAuth';
 
 const iconMap = {
     "png": FaFileImage,
     "jpg": FaFileImage,
     "jpeg": FaFileImage,
+
+    "mp4": FaFileVideo,
+    "gif": FaFileVideo,
+
     "doc": FaFileWord,
     "docx": FaFileWord,
 
@@ -65,10 +69,9 @@ const File = () => {
     const [fileUrl, setFileUrl] = useState("")
 
     useEffect(() => {
-        console.log(id)
         if (id) {
             const storage = getStorage();
-            setFileName(id.split("_")[1])
+            setFileName(id.split("_").splice(1).join("_"))
             getDownloadURL(ref(storage, id))
                 .then((url) => {
                     setFileUrl(url)
@@ -81,7 +84,7 @@ const File = () => {
                     // xhr.send();
                 })
                 .catch((error) => {
-                    console.error(error)
+
                 });
         }
     }, [id])
@@ -89,7 +92,7 @@ const File = () => {
     return (
         <Container>
             <Flex align="center" justify="center" direction="column" transition="all 0.15s ease-out" display="block">
-                <Stack height="100vh" bg="gray.900" color="gray.100" paddingTop="50%">
+                <Stack height="100vh" bg="gray.900" color="gray.100">
                     <Stack>
                         <Stack display="block">
                             <Text fontSize="6xl" align="center">
@@ -97,10 +100,22 @@ const File = () => {
                             </Text>
                             <Link href={fileUrl}>
                                 <Stack align="center" marginTop="25px">
-                                    <Icon as={ get(iconMap, fileName.split(".").at(-1), FaFile) } fontSize="60px" />
+                                    <Icon as={get(iconMap, fileName.split(".").at(-1), FaFile)} fontSize="60px" />
                                     <Text fontSize="lg" align="center">
                                         {fileName}
                                     </Text>
+                                </Stack>
+                                <Stack align="center" marginTop="20px">
+                                    {fileName.split(".").at(-1) == "png" || fileName.split(".").at(-1) == "jpg" || fileName.split(".").at(-1) == "jpeg" || fileName.split(".").at(-1) == "gif" ? (
+                                        <Box>
+                                            <Image src={fileUrl} />
+                                        </Box>
+                                    ) : <></>}
+                                    {fileName.split(".").at(-1) == "mp4" ? (
+                                        <Box>
+                                            <iframe src={fileUrl} allowFullScreen />
+                                        </Box>
+                                    ) : <></>}
                                 </Stack>
                             </Link>
                         </Stack>

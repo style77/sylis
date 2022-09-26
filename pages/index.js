@@ -66,7 +66,9 @@ const Index = () => {
               
             </Stack>
           </Stack>
-          <FileDropzone />
+          {isLoggedIn && (
+            <FileDropzone />
+          )}
           <Stack margin="30px">
             {!isLoggedIn && (
               <Text fontSize="4xl">
