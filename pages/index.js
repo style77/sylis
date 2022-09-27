@@ -15,6 +15,7 @@ import useAuth from '../components/hooks/useAuth'
 
 import { Container } from '.././components/container'
 import FileDropzone from '../components/dropZone'
+import { Layout } from '../components/layout'
 
 const texts = {
   true: {
@@ -52,7 +53,7 @@ const Index = () => {
   }
 
   return (
-    <Container>
+    <Layout>
       <Flex align="center" justify="center" direction="column" transition="all 0.15s ease-out" display="block">
         <Stack height="100vh" bg="gray.900" color="gray.100" paddingTop="50%">
           <Stack>
@@ -96,17 +97,7 @@ const Index = () => {
           </Stack>
         </Stack>
       </Flex>
-      <Stack bottom="2" left="2" position="absolute">
-        {isLoggedIn && (
-          <Circle size="60px" bg='white' color="gray.900" opacity="25%" _hover={{ opacity: "100%", transition: "all 0.1s ease-in-out" }} cursor="pointer" onClick={() => auth.signOut()}>
-            <Icon as={FaSignOutAlt} fontSize="30px" />
-          </Circle>
-        )}
-        <Text fontSize="sm" color="gray.100" opacity="25%" _hover={{ opacity: "100%", transition: "all 0.1s ease-in-out" }}>
-          made with ❤️ by <Link href="https://github.com/Style77/">yves#4105</Link>
-        </Text>
-      </Stack>
-    </Container>
+    </Layout>
   )
 }
 

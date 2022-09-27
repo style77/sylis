@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const removeImports = require("next-remove-imports")();
+
+const nextConfig = removeImports({
   reactStrictMode: true,
   swcMinify: true,
   future: {
@@ -24,6 +27,6 @@ const nextConfig = {
     appId: `${process.env.appId}`,
     measurementId: `${process.env.measurementId}`,
   }
-}
+})
 
 module.exports = nextConfig
