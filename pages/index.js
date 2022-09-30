@@ -72,13 +72,13 @@ const Index = () => {
           )}
           <Stack margin="30px">
             {!isLoggedIn && (
-              <Text fontSize="4xl">
+              <Text fontSize="3xl">
               {texts[isLoggedIn]["mid"]}
               </Text>
             )}
             <Flex >
               {!isLoggedIn && (
-                <Flex w="13rem" align="center" justify="center" direction="row" marginLeft="22.5%">
+                <Flex w="13rem" align="center" justify="center" direction="row" marginLeft="22.5%" zIndex="100">
                   <Circle size="60px" bg='white' color="gray.900" float="left" opacity="35%" cursor="not-allowed">
                     <Icon as={FaApple} fontSize="30px"></Icon>
                   </Circle>

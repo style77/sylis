@@ -33,7 +33,7 @@ const iconMap = {
 
 const codingExts = ["txt", "js", "ts", "html", "css", "json", "md", "py", "go", "java", "c", "cpp", "cs", "rb", "rs", "kt", "swift", "dart", "php", "sql", "sh", "bat"]
 const imageExts = ["png", "jpg", "jpeg", "svg", "gif"]
-const videoExts = ["mp4", "mov", "avi", "mkv", "webm", "flv", "wmv", "mpeg", "mpg", "m4v", "3gp", "3g2", "gif"]
+const videoExts = ["mp4", "mov", "avi", "mkv", "webm", "flv", "wmv", "mpeg", "mpg", "m4v", "3gp", "3g2"]
 const audioExts = ["mp3", "wav", "ogg", "flac", "aac", "wma", "m4a", "aiff", "alac", "amr", "ape", "au", "dct", "dss", "dvf", "gsm", "iklax", "ivs", "m4p", "mmf", "mpc", "msv", "nmf", "nsf", "oga", "opus", "ra", "raw", "sln", "tta", "vox", "wv", "webm", "8svx", "cda"]
 
 codingExts.forEach(element => {
@@ -121,7 +121,7 @@ const File = () => {
                             </Text>
                             <Stack align="center" marginTop="25px">
                                 {imageExts.includes(fileName.split(".").at(-1)) ? (
-                                    <Box width="500px" height="auto" zIndex="100">
+                                    <Box width="70vw" height="auto" align="center" zIndex="1000">
                                         <Image src={fileUrl} />
                                     </Box>
                                 ) : <></>}
@@ -137,13 +137,31 @@ const File = () => {
                                             fontSize: "0.9rem",
                                             backgroundColor: "#222830",
                                             borderRadius: "5px",
+                                            zIndex: "1000",
+                                            
                                         }}
+                                        // sx={{
+                                        //     '&::-webkit-scrollbar': {
+                                        //         width: '0.5em',
+                                        //         backgroundColor: '#F5F5F5'
+                                        //     },
+                                        //     '&::-webkit-scrollbar-thumb': {
+                                        //         borderRadius: '10px',
+                                        //         '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.5)',
+                                        //         backgroundColor: '#555',
+                                        //     },
+                                        //     '&::-webkit-scrollbar-track': {
+                                        //         borderRadius: '10px',
+                                        //         '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.5)',
+                                        //         backgroundColor: '#F5F5F5',
+                                        //     }
+                                        // }}
                                         disabled="disabled"
                                         />
                                     </>
                                 ) : <></>}
                                 {videoExts.includes(fileName.split(".").at(-1)) ? (
-                                    <Box>
+                                    <Box width="70vw" height="auto" align="center" zIndex="1000">
                                         <iframe src={fileUrl} allowFullScreen />
                                     </Box>
                                 ) : <></>}

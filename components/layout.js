@@ -1,6 +1,7 @@
 import { Circle, Icon, Link, Stack, Text } from "@chakra-ui/react"
 import { useEffect } from "react"
 import { FaSignInAlt } from "react-icons/fa"
+import { auth } from "../firebase"
 import { Container } from "./container"
 import useAuth from "./hooks/useAuth"
 
@@ -53,9 +54,12 @@ export const Layout = ({ children }) => {
 
             const textElem = document.createElement('span')
             textElem.style.position = "absolute"
-            textElem.style.left = Math.floor(Math.random() * 85) + "vw"
+            textElem.style.textAlign = "center"
+            textElem.style.marginLeft = "auto"
+            textElem.style.marginRight = "auto"
+            textElem.style.left = Math.floor(Math.random() * 70) + "vw"
             textElem.style.top = Math.floor(Math.random() * 85) + "vh"
-            textElem.style.fontSize = Math.floor(Math.random() * 10) + 10 + "px"
+            textElem.style.fontSize = Math.floor(Math.random() * 0.6) + 0.6 + "rem"
             if (["rainbow.heh"].includes(fileName)) {
                 textElem.style.backgroundImage = "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"
                 textElem.style.color = "transparent"
@@ -67,6 +71,7 @@ export const Layout = ({ children }) => {
             textElem.style.fontFamily = "monospace"
             textElem.style.transform = "rotate(" + Math.floor(Math.random() * 360) + "deg)"
             textElem.style.opacity = "0"
+            textElem.style.zIndex = "1"
             textElem.animate([{
                 opacity: 1
             }, {
