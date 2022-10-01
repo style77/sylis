@@ -103,14 +103,16 @@ const File = () => {
 
     return (
         <Layout>
-            <Head>
+            <head>
                 <title>{fileName}</title>
                 <meta property='og:title' content={fileName} key='title' />
                 <meta property='og:description' content='Uploaded to sylis' key='description' />
                 <meta property='og:url' content="https://sylis.vercel.app/" />
-                <meta property='og:image' content={fileUrl} />
+                {imageExts.includes(fileName.split(".").at(-1)) && <meta property='og:image' content={fileUrl} />}
+                {videoExts.includes(fileName.split(".").at(-1)) && <meta property='og:video' content={fileUrl} />}
+                {audioExts.includes(fileName.split(".").at(-1)) && <meta property='og:audio' content={fileUrl} />}
                 <meta property='og:type' content='website' />
-            </Head>
+            </head>
             <Flex align="center" justify="center" direction="column" transition="all 0.15s ease-out" display="block">
                 <Stack height="100vh" bg="gray.900" color="gray.100">
                     <Stack>
