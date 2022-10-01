@@ -111,7 +111,6 @@ const File = () => {
                 {imageExts.includes(fileName.split(".").at(-1)) && <meta property='og:image' content={fileUrl} />}
                 {videoExts.includes(fileName.split(".").at(-1)) && <meta property='og:video' content={fileUrl} />}
                 {audioExts.includes(fileName.split(".").at(-1)) && <meta property='og:audio' content={fileUrl} />}
-                <meta property='og:type' content='website' />
             </head>
             <Flex align="center" justify="center" direction="column" transition="all 0.15s ease-out" display="block">
                 <Stack height="100vh" bg="gray.900" color="gray.100">
