@@ -10,6 +10,7 @@ import { Layout } from '../components/layout'
 
 import dynamic from "next/dynamic"
 import "@uiw/react-textarea-code-editor/dist.css";
+import Head from 'next/head'
 
 // codeEditor setup https://github.com/uiwjs/react-textarea-code-editor#support-nextjs
 
@@ -102,6 +103,14 @@ const File = () => {
 
     return (
         <Layout>
+            <Head>
+                <title>{fileName}</title>
+                <meta property='og:title' content={fileName} key='title' />
+                <meta property='og:description' content='Uploaded to sylis' key='description' />
+                <meta property='og:url' content="https://sylis.vercel.app/" />
+                <meta property='og:image' content={fileUrl} />
+                <meta property='og:type' content='website' />
+            </Head>
             <Flex align="center" justify="center" direction="column" transition="all 0.15s ease-out" display="block">
                 <Stack height="100vh" bg="gray.900" color="gray.100">
                     <Stack>
