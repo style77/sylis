@@ -46,7 +46,6 @@ const fileNames = [
 const textCount = 25
 
 export const Layout = ({ children }) => {
-    const { isLoggedIn, user } = useAuth()
 
     function generate() {
         setTimeout(() => {
@@ -57,6 +56,8 @@ export const Layout = ({ children }) => {
             textElem.style.textAlign = "center"
             textElem.style.marginLeft = "auto"
             textElem.style.marginRight = "auto"
+            textElem.style.userSelect = "none"
+
             textElem.style.left = Math.floor(Math.random() * 70) + "vw"
             textElem.style.top = Math.floor(Math.random() * 85) + "vh"
             textElem.style.fontSize = Math.floor(Math.random() * 0.6) + 0.6 + "rem"
@@ -106,11 +107,6 @@ export const Layout = ({ children }) => {
         <Container>
             {children}
             <Stack bottom="2" left="2" position="absolute">
-                {isLoggedIn && (
-                    <Circle size="60px" bg='white' color="gray.900" opacity="25%" _hover={{ opacity: "100%", transition: "all 0.1s ease-in-out" }} cursor="pointer" onClick={() => auth.signOut()}>
-                        <Icon as={FaSignInAlt} fontSize="30px" />
-                    </Circle>
-                )}
                 <Text fontSize="sm" color="gray.100" opacity="25%" _hover={{ opacity: "100%", transition: "all 0.1s ease-in-out" }}>
                     made with ❤️ by <Link href="https://github.com/Style77/">yves#4105</Link>
                 </Text>
