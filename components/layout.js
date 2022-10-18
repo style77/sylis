@@ -108,7 +108,7 @@ export const Layout = ({ children }) => {
             {children}
             <Stack bottom="2" left="2" position="absolute">
                 <Text fontSize="sm" color="gray.100" opacity="25%" _hover={{ opacity: "100%", transition: "all 0.1s ease-in-out" }}>
-                    made with ❤️ by <Link href="https://github.com/Style77/">yves#4105</Link>
+                    made with ❤️ by <Link href="https://github.com/Style77/">yves#8382</Link>
                 </Text>
             </Stack>
         </Container>
